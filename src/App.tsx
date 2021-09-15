@@ -56,7 +56,7 @@ function App() {
 
     }
 
-    let resp: Response = await fetch(`http://localhost:3000/api/v1${typeserachUrl}`, op);
+    let resp: Response = await fetch(`https://fifa-app-node.herokuapp.com/api/v1${typeserachUrl}`, op);
 
 
     let body: any = await resp.json()

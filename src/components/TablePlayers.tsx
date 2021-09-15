@@ -38,7 +38,7 @@ export const TablePlayers: React.FC<any> = ({ players, setPlayers, setPlay1, typ
         }
 
 
-        let resp: Response = await fetch(`http://localhost:3000/api/v1${extUrl}`, op)
+        let resp: Response = await fetch(`https://fifa-app-node.herokuapp.com/api/v1${extUrl}`, op)
 
         let body: any = await resp.json()
         setPlayers(body)
