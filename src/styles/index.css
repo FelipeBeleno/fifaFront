@@ -1,0 +1,46 @@
+body {
+    font-family: 'Comfortaa', cursive;
+    background-color: #e1e8f0;
+}
+
+.card {
+    text-align: center;
+    height: 90%;
+}
+
+.tableEdit {
+    border-radius: 15px;
+}
+
+.avartar {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+}
+
+.btnLeftRigth {
+    cursor: pointer;
+}
+
+.avartar1 {
+    height: 130px;
+    width: 130px;
+    border-radius: 50%;
+}
+
+.form-control {
+    border-radius: 15px;
+}
+
+.btnProp {
+    border-radius: 15px;
+    padding: 5px 10px;
+    margin-left: 5px;
+    border-style: dashed;
+    background-color: #7d68e7;
+    color: white;
+}
+
+.btnProp:hover {
+    color: white;
+}
