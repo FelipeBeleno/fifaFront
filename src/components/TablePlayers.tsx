@@ -1,8 +1,6 @@
-import { Players, Player } from '../interfaces/genericsIntefaces';
+import {  Player } from '../interfaces/genericsIntefaces';
 
-export const TablePlayers: React.FC<any> = ({ players, setPlayers, setPlay1, typeSearch, busqueda }) => {
-
-    console.log(busqueda)
+export const TablePlayers: React.FC<any> = ({ players, setPlayers, setPlay1, typeSearchB, busqueda }) => {
 
 
     const handlePaginator = async (e: string) => {
@@ -12,12 +10,12 @@ export const TablePlayers: React.FC<any> = ({ players, setPlayers, setPlay1, typ
 
 
 
-        pageNext = pageNext == 0 ? 1 : pageNext
+        pageNext = pageNext === 0 ? 1 : pageNext
 
 
         pageNext = pageNext >= players.totalPages ? players.totalPages : pageNext
 
-        let extUrl = busqueda == '' || busqueda == undefined ? `/players?page=${pageNext}` : '/team'
+        let extUrl = busqueda === '' || busqueda === undefined ? `/players?page=${pageNext}` : '/team'
 
 
 
@@ -46,10 +44,7 @@ export const TablePlayers: React.FC<any> = ({ players, setPlayers, setPlay1, typ
     }
 
     const handleClickPlayer = (p: Player) => {
-
-
         setPlay1(p)
-
     }
 
 
@@ -66,7 +61,7 @@ export const TablePlayers: React.FC<any> = ({ players, setPlayers, setPlay1, typ
                             <th scope="col"> Avatar </th>
                             <th scope="col">Name</th>
                             <th scope="col">Position</th>
-                            <th scope="col">{busqueda !== '' || busqueda !== undefined ? 'Nation' : 'Team'}</th>
+                            <th scope="col">{typeSearchB}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -88,7 +83,7 @@ export const TablePlayers: React.FC<any> = ({ players, setPlayers, setPlay1, typ
                                     /></td>
                                     <td>{p.name}</td>
                                     <td>{p.position}</td>
-                                    <td>{busqueda !== '' || busqueda !== undefined ? p.nation : p.team}</td>
+                                    <td>{p.team || p.nation}</td>
                                 </tr>
 
 

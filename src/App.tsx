@@ -1,7 +1,6 @@
 import { Fragment, useEffect, useState } from 'react';
 import { DetailPlayer } from './components/DetailPlayer';
 import { TablePlayers } from './components/TablePlayers';
-import { Players } from './interfaces/genericsIntefaces';
 
 function App() {
 
@@ -38,9 +37,7 @@ function App() {
     let typeserachUrl = typeSerach === '' ? '/players' : '/team'
     let meth = typeSerach === '' ? 'GET' : 'POST'
 
-    console.log(meth)
-
-    let op = meth == 'GET' ? {
+    let op = meth === 'GET' ? {
       headers: {
         'x-api-key': localStorage.getItem('x-header') || 'hola'
       }
@@ -71,11 +68,9 @@ function App() {
 
     setPlayers(body)
 
-    let type = typeSerach == '' ? 'player' : 'team'
+    let type = meth === 'POST' ? 'Nation' : 'Team'
 
     setTypeSearchB(type)
-
-
   }
 
 
@@ -105,7 +100,7 @@ function App() {
             <h3 className="card-title mt-5">FIFA 21 Ultimate Team</h3>
             <div className="row mt-5">
               <div className="col-md-6 col-xs-12 mt-5">
-                <h5 className="card-subtitle mb-2 text-muted"><b>Lista de Juagadores</b></h5>
+                <h5 className="card-subtitle mb-2 text-muted"><b>Players List</b></h5>
 
                 {
                   players !== undefined
@@ -117,14 +112,14 @@ function App() {
               </div>
 
               <div className="col-md-6 col-xs-12 mt-5">
-                <h5 className="card-subtitle mb-2 text-muted"><b>Detalle de jugador </b></h5>
+                <h5 className="card-subtitle mb-2 text-muted"><b>Player Detail </b></h5>
 
 
                 {
                   play1 !== ''
                     ?
                     <DetailPlayer det={play1} />
-                    : <h3 className="mt-5">Selecciona un juagador de la lista</h3>
+                    : <h3 className="mt-5">Select a player from the list</h3>
                 }
 
 
@@ -139,12 +134,14 @@ function App() {
                       setErrorBusqiueda('')
                     }
                     setBusqueda(e.target.value)
-                  }} />
-                  <button className="btnProp btn" onClick={handleSubmit} > Buscar </button>
+                  }}
+                    placeholder="write the team"
+                  />
+                  <button className="btnProp btn" onClick={handleSubmit} > Search </button>
 
                 </div>
                 {
-                  errorBusqiueda != ''
+                  errorBusqiueda !== ''
                   &&
                   <div className="alert alert-danger mt-4 p-1" role="alert">
                     {errorBusqiueda}

@@ -9,9 +9,9 @@ export const DetailPlayer: React.FC<any> = ({ det }) => {
                 alt="img avatar"
                 className="avartar1"
             />
-            <h4 className="mt-4">{det.name}</h4>
+            <h4 className="mt-4"><b>{det.name}</b></h4>
             <h4 className="mt-4">{det.position}</h4>
-            <h4 className="mt-4">{det.team}</h4>
+            <h4 className="mt-4">{det.team || det.nation}</h4>
 
         </div>
     )
