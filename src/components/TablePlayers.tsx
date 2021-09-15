@@ -73,6 +73,7 @@ export const TablePlayers: React.FC<any> = ({ players, setPlayers, setPlay1, typ
                                 return <tr
                                     key={players.Page * 10 + i + 1}
                                     onClick={() => handleClickPlayer(p)}
+                                    className="trPT"
                                 >
 
                                     <th scope="row">{sum}</th>

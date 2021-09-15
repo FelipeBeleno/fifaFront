@@ -44,3 +44,7 @@ body {
 .btnProp:hover {
     color: white;
 }
+
+.trPT {
+    cursor: pointer;
+}
